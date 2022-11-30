@@ -23,11 +23,11 @@ const Counter = () => {
     switch (action.type) {
       case INCREMENT:
         return {
-          count: state.count + 1,
+          count: state.count + action.payload,
         };
       case DECREMENT:
         return {
-          count: state.count - 1,
+          count: state.count - action.payload,
         };
       case RESET:
         return {
@@ -46,10 +46,13 @@ const Counter = () => {
     <myContext.Provider value={state}>
       <div>
         <Points />
-        <button onClick={() => dispatch({ type: "INCREMENT" })}>Increse</button>
-        <button onClick={() => dispatch({ type: "DECREMENT" })}>
+        <button onClick={() => dispatch({ type: INCREMENT, payload: 10 })}>
+          Increse
+        </button>
+        <button onClick={() => dispatch({ type: DECREMENT, payload: 2 })}>
           Decrease
         </button>
+        <button onClick={() => dispatch({ type: RESET })}>Reset</button>
       </div>
     </myContext.Provider>
   );
