@@ -15,12 +15,13 @@ const LoginUseState = () => {
         console.log(username, password);
         return new Promise((resolve, reject) => {
           setTimeout(() => {
-            if (username === "admin" && password === "admin") {
+            if (
+              username.toLowerCase() === "admin" &&
+              password.toLowerCase() === "admin"
+            ) {
               resolve();
-              console.log("entro if");
             } else {
               reject();
-              console.log("entro else");
             }
           }, 2000);
         });
@@ -41,6 +42,7 @@ const LoginUseState = () => {
   const logout = () => {
     setIsLoggedIn(false);
     setIsLoading(false);
+    setError("");
   };
 
   return (

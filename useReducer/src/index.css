@@ -60,3 +60,19 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.loading {
+  animation: 1s pulse;
+}
+
+@keyflames pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
