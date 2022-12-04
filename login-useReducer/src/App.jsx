@@ -15,6 +15,7 @@ const ACTIONS = {
 const initialState = {
   input: "",
   tasks: [],
+  filtering: false,
   filteredTasks: [],
 };
 
@@ -48,18 +49,31 @@ const tasksReducer = (state, action) => {
         input: "",
       };
     case ACTIONS.FILTER:
-      return {
-        ...state,
-        filteredTasks: state.tasks.filter((task) => task.id === action.payload),
-      };
+      console.log("entro al reducer");
+
+      if (action.payload === "filter") {
+        return {
+          ...state,
+          filtering: true,
+          filteredTasks: state.tasks.filter((task) => task.completed),
+        };
+      } else {
+        return {
+          ...state,
+          filtering: false,
+          filteredTasks: [],
+        };
+      }
+
     case ACTIONS.COMPLETION:
-      console.log("entro");
+      state.tasks.splice(
+        action.payload.taskIndex,
+        1,
+        action.payload.completedTask
+      );
+
       return {
         ...state,
-        tasks: [
-          ...state.tasks.filter((task) => task.id !== action.payload.id),
-          action.payload,
-        ],
       };
     default:
       return state;
@@ -69,12 +83,27 @@ const tasksReducer = (state, action) => {
 function App() {
   const [state, dispatch] = useReducer(tasksReducer, initialState);
 
+  const handleFilter = () => {
+    if (state.filtering && state.filteredTasks.length !== 0) {
+      dispatch({ type: ACTIONS.FILTER, payload: "filter" });
+    } else {
+      dispatch({ type: ACTIONS.FILTER, payload: "clear" });
+    }
+  };
+
+  console.log(state.filtering, state.filteredTasks);
+
   return (
     <tasksContext.Provider value={{ state, dispatch, ACTIONS }}>
       <div className="container">
         <TaskInput />
         {state.tasks.length !== 0 ? (
-          <button className="task-filter">Filtrar</button>
+          <div className="filter">
+            <p>Filtrar por:</p>
+            <button className="filter-btn" onClick={handleFilter}>
+              Completadas
+            </button>
+          </div>
         ) : null}
         <TasksList />
       </div>

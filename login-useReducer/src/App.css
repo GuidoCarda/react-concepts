@@ -70,3 +70,18 @@ ul {
   color: rgb(123, 123, 123);
   text-decoration: line-through;
 }
+
+.filter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid red;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.filter-btn {
+  width: min-content;
+  margin-top: 0;
+}

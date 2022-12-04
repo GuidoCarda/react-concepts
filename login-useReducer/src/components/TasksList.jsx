@@ -15,12 +15,14 @@ const TasksList = () => {
 
     const completedTask = {
       ...task,
-      completed: true,
+      completed: !task.completed,
     };
+
+    const taskIndex = tasks.map((task) => task.id).indexOf(id);
 
     dispatch({
       type: ACTIONS.COMPLETION,
-      payload: completedTask,
+      payload: { completedTask, taskIndex },
     });
   };
 
