@@ -76,7 +76,6 @@ ul {
   display: flex;
   align-items: center;
   gap: 1rem;
-  border: 1px solid red;
   justify-content: space-between;
   margin-top: 1rem;
 }
@@ -84,4 +83,15 @@ ul {
 .filter-btn {
   width: min-content;
   margin-top: 0;
+}
+
+.is-filtering {
+  background: rgb(146, 221, 162);
+  color: black;
+  border: 2px solid rgb(98, 166, 112);
+  outline: none;
+}
+
+.no-results {
+  margin-top: 2rem;
 }

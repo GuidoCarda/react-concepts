@@ -15,7 +15,7 @@ const ACTIONS = {
 const initialState = {
   input: "",
   tasks: [],
-  filtering: false,
+  isFiltering: false,
   filteredTasks: [],
 };
 
@@ -35,7 +35,7 @@ const tasksReducer = (state, action) => {
         ...state,
         tasks: [
           ...state.tasks,
-          { task: state.input, id: generateId(), completed: false },
+          { desc: state.input, id: generateId(), completed: false },
         ],
       };
     case ACTIONS.DELETE:
@@ -51,16 +51,17 @@ const tasksReducer = (state, action) => {
     case ACTIONS.FILTER:
       console.log("entro al reducer");
 
+      console.log(action.payload);
       if (action.payload === "filter") {
         return {
           ...state,
-          filtering: true,
+          isFiltering: true,
           filteredTasks: state.tasks.filter((task) => task.completed),
         };
       } else {
         return {
           ...state,
-          filtering: false,
+          isFiltering: false,
           filteredTasks: [],
         };
       }
@@ -84,14 +85,14 @@ function App() {
   const [state, dispatch] = useReducer(tasksReducer, initialState);
 
   const handleFilter = () => {
-    if (state.filtering && state.filteredTasks.length !== 0) {
+    if (!state.isFiltering) {
       dispatch({ type: ACTIONS.FILTER, payload: "filter" });
     } else {
       dispatch({ type: ACTIONS.FILTER, payload: "clear" });
     }
   };
 
-  console.log(state.filtering, state.filteredTasks);
+  console.log(state.isFiltering, state.filteredTasks);
 
   return (
     <tasksContext.Provider value={{ state, dispatch, ACTIONS }}>
@@ -100,7 +101,12 @@ function App() {
         {state.tasks.length !== 0 ? (
           <div className="filter">
             <p>Filtrar por:</p>
-            <button className="filter-btn" onClick={handleFilter}>
+            <button
+              className={`filter-btn ${
+                state.isFiltering ? "is-filtering" : ""
+              }`}
+              onClick={handleFilter}
+            >
               Completadas
             </button>
           </div>
