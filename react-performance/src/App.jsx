@@ -63,3 +63,18 @@ function WrappedButton(props) {
 const Button = React.memo(WrappedButton);
 
 export default App;
+
+/*
+// Cuando usar useMemo
+
+- Componente funcional que recibe unas props
+y siempre devuelve lo mismo
+
+- Cuando un componente se re-renderiza demasiadas veces
+
+- Un componente recibe las mismas props y re-renderiza
+
+- Componentes muy grandes q contienen muchos elementos UI
+que dependen de los props
+
+*/
