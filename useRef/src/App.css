@@ -4,13 +4,6 @@
   margin: 0;
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -107,4 +100,34 @@
   flex-direction: column;
   gap: 3rem;
   border-radius: 0.5rem;
+}
+
+.photo-carousel-container {
+  overflow: hidden;
+  width: 100vw;
+}
+
+.photo-carousel {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  overflow-x: scroll;
+  max-width: 80%;
+  margin-inline: auto;
+}
+
+.photo-carousel-nav {
+  padding-block: 1rem;
+  margin-bottom: 1rem;
+  background: rgb(43, 43, 43);
+  display: grid;
+  place-content: center;
+}
+
+.photo-carousel > li > img {
+  border: 10px solid transparent;
+}
+
+.photo-carousel > li > img.active {
+  border: 10px solid rgb(51, 98, 199);
 }

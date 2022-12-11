@@ -22,3 +22,11 @@ state updates synchronously
 
 Because of the default behaviour of state in react, it queues and updates asynchrounously. So if we want to focus in a given
 element of the state, we want this action to be synchronous.
+
+Recap
+Refs are a generic concept, but most often you’ll use them to hold DOM elements.
+You instruct React to put a DOM node into myRef.current by passing <div ref={myRef}>.
+Usually, you will use refs for non-destructive actions like focusing, scrolling, or measuring DOM elements.
+A component doesn’t expose its DOM nodes by default. You can opt into exposing a DOM node by using forwardRef and passing the second ref argument down to a specific node.
+Avoid changing DOM nodes managed by React.
+If you do modify DOM nodes managed by React, modify parts that React has no reason to update.
