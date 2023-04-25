@@ -19,9 +19,12 @@ const FilterableProductTable = ({ products }) => {
   const [filterText, setFilterText] = useState("");
   const [inStockOnly, setInStockOnly] = useState(false);
 
-  const filteredProducts = filterText
-    ? products.filter((p) => p.name.includes(filterText))
-    : products;
+  const filteredProducts = products.filter((p) => {
+    const nameMatches =
+      !filterText || p.name.toLowerCase().includes(filterText);
+    const isStocked = !inStockOnly || p.stocked;
+    return nameMatches && isStocked;
+  });
 
   return (
     <div>
@@ -51,7 +54,7 @@ const SearchBar = ({
       <input
         type="text"
         value={filterText}
-        onChange={(e) => onFilterTextChange(e.target.value)}
+        onChange={(e) => onFilterTextChange(e.target.value.toLowerCase())}
       />
       <label style={{ display: "block" }}>
         <input
