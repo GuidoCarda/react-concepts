@@ -6,6 +6,7 @@ import "./App.css";
 import LoginUseState from "./components/LoginUseState";
 import LoginUseReducer from "./components/LoginUseReducer";
 import AppUseReducerContext from "./pages/app-useReducer-context";
+import AppUseReducerCounter from "./pages/app-useReducer-counter";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <Counter /> */}
       {/* <LoginUseState /> */}
       {/* <LoginUseReducer /> */}
-      <AppUseReducerContext />
+      {/* <AppUseReducerContext /> */}
+      <AppUseReducerCounter />
     </div>
   );
 }
