@@ -1,0 +1,13 @@
+.container {
+  flex: 1;
+  padding-top: 10rem;
+}
+
+.container h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.container p {
+  color: gray;
+}

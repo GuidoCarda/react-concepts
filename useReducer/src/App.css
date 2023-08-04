@@ -1,60 +1,20 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
 .App {
-  width: min(1080px, 90vw);
-  padding: 2rem;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-inline: auto;
+  height: 100%;
 }
 
-.container {
-  width: min(380px, 100%);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-
-  margin-top: 1rem;
-  padding: 2rem 1rem;
-
-  border-radius: 0.25rem;
-  border: 1px solid gray;
-}
-
-label {
-  margin-bottom: 0.25rem;
-}
-
-form > button {
-  margin-top: 2rem;
-  width: 100%;
-}
-
-input {
-  height: 2rem;
-  width: 100%;
-}
-
-input + label {
-  margin-top: 1rem;
-}
-
-.login-error {
-  padding: 1rem;
-  margin-top: 2rem;
-  background: rgba(177, 33, 33, 0.3);
-
-  border: 1px solid rgb(232, 86, 86);
-  border-radius: 0.5rem;
-  width: 100%;
-  display: block;
-  color: rgb(236, 141, 141);
+button {
+  font: inherit;
+  cursor: pointer;
 }

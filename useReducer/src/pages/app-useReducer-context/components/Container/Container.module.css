@@ -1,0 +1,26 @@
+.wrapper {
+  width: min(1080px, calc(100% - 4rem));
+  margin-inline: auto;
+  display: flex;
+  height: calc(100% - 4rem);
+}
+
+.loading {
+  flex: 1;
+  display: grid;
+  place-content: center;
+}
+
+.loading h2 {
+  font-size: 2rem;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

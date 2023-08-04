@@ -1,0 +1,54 @@
+.form {
+  width: min(400px, 100%);
+  margin-inline: auto;
+  margin-top: 10rem;
+  position: relative;
+}
+
+.form h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.form > label {
+  display: block;
+  color: rgb(166, 166, 166);
+}
+
+.form > input {
+  padding-inline: 1rem;
+  font: inherit;
+}
+
+.form > input,
+.form > button {
+  height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.form > button {
+  margin-top: 2.5rem;
+}
+
+.form > input + label {
+  margin-top: 1.5rem;
+}
+
+.error {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  display: block;
+  height: 3rem;
+  width: 100%;
+  background: rgba(255, 44, 44, 0.171);
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(252, 36, 36, 0.282);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -6rem;
+}
